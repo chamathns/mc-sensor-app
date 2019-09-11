@@ -35,14 +35,16 @@ public class MainActivity extends AppCompatActivity implements SensorEventListen
         zValue = (TextView)findViewById(R.id.zValue);
 
         button = (Button)findViewById(R.id.button);
-        button.setTag(1);
-        button.setText("stop");
+        button.setTag(0);
+        button.setText("start");
 
         Log.d(TAG, "onCreate: Initializing Sensor Services");
         sensorManager = (SensorManager) getSystemService(Context.SENSOR_SERVICE);
-
         accelerometer = sensorManager.getDefaultSensor(Sensor.TYPE_ACCELEROMETER);
-        sensorManager.registerListener(MainActivity.this,accelerometer, SENSOR_DELAY_NORMAL);
+
+        xValue.setText("xValue: N/A" );
+        yValue.setText("yValue: N/A" );
+        zValue.setText("zValue: N/A" );
 
         button.setOnClickListener(new Button.OnClickListener(){
 
